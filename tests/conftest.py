@@ -5,26 +5,15 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
 
-@pytest.fixture
-def client():
+@pytest.fixture(scope="session")
+def app():
     app = create_app()
-    app.config["TESTING"] = True
-    ctx = app.app_context()
-    ctx.push()
-
-    yield app.test_client()
-
-    ctx.pop()
+    return app
 
 
-@pytest.yield_fixture
-def web_client():
-    options = Options()
-    options.headless = True
-    firefox = webdriver.Firefox(options=options)
-    firefox.implicitly_wait(3)
-
-    yield firefox
-
-    firefox.close()
-    firefox.quit()
+@pytest.fixture
+def chrome_options(chrome_options):
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    return chrome_options

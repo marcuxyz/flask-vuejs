@@ -16,23 +16,16 @@ jobs:
     strategy:
       matrix:
         python-version: [3.7, 3.8]
-    env:
-      SELENIUM_HUB_HOST: hub
-      TEST_HOST: testHost
-    services:
-      hub:
-        image: selenium/hub:3.141.59
-      firefox:
-        image: selenium/standalone-firefox
-        env:
-          HUB_HOST: hub
-          HUB_PORT: 4444
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
+    - name: Install Google Chrome
+      run: |
+       chmod +x ./scripts/install_chrome.sh
+        ./scripts/install_chrome.sh
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
