@@ -5,7 +5,7 @@ from . import environs
 
 
 class Vue:
-    def __init__(self, app: Flask) -> None:
+    def __init__(self, app: Flask = None) -> None:
         if app is not None:
             self.init_app(app)
 
