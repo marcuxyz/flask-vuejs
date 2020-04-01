@@ -2,8 +2,8 @@
  * Organization: Pacotei
  * Github: https://github.com/orgs/pacotei
  * Author: Marcus Pereira
- * E-mail: oi@pacotei.app
+ * E-mail: oi@pacotei.xyz
  */
 
-//  Set Confi for Vue
-Vue.options.delimiters = ["${", "}"];
+//  Set Config for Vue
+Vue.options.delimiters = ["#{", "}"];
