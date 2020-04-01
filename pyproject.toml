@@ -8,6 +8,8 @@ readme = "README.md"
 license = "MIT"
 keywords = ["fkask + vuejs", "flask-vue", "vuejs", "create app with flask and vue"]
 
+repository = "https://github.com/pacotei/flask-vuejs"
+
 
 [tool.poetry.dependencies]
 python = "^3.8"
