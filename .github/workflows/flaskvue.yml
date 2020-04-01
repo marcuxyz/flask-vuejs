@@ -16,6 +16,20 @@ jobs:
     strategy:
       matrix:
         python-version: [3.6, 3.7, 3.8]
+    container:
+      image: node:13.6
+      options: --network-alias testHost
+    env:
+      SELENIUM_HUB_HOST: hub
+      TEST_HOST: testHost
+    services:
+      hub:
+        image: selenium/hub:3.141.59
+      chrome:
+        image: selenium/node-chrome:3.141.59
+        env:
+          HUB_HOST: hub
+          HUB_PORT: 5000
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
