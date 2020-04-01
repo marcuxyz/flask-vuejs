@@ -1,6 +1,6 @@
 .PHONY: test
 test:
-	@pytest -vv
+	@pytest -vv --driver Chrome
 
 .PHONY: format
 format:
