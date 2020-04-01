@@ -2,3 +2,4 @@ __pycache__
 flask_vuejs.egg-info
 poetry.lock
 .vscode
+.webassets-cache
