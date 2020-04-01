@@ -15,21 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
-    container:
-      image: node:13.6
-      options: --network-alias testHost
+        python-version: [3.7, 3.8]
     env:
       SELENIUM_HUB_HOST: hub
       TEST_HOST: testHost
     services:
       hub:
         image: selenium/hub:3.141.59
-      chrome:
-        image: selenium/node-chrome:3.141.59
+      firefox:
+        image: selenium/standalone-firefox
         env:
           HUB_HOST: hub
-          HUB_PORT: 5000
+          HUB_PORT: 4444
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
