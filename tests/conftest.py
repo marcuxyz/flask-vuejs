@@ -1,8 +1,6 @@
 import pytest
 
 from sample_app import create_app
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
 
 
 @pytest.fixture(scope="session")
