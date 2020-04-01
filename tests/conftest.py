@@ -1,6 +1,6 @@
 import pytest
 
-from application import create_app
+from sample_app import create_app
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -13,7 +13,7 @@ def client():
     ctx.push()
 
     yield app.test_client()
-    
+
     ctx.pop()
 
 
