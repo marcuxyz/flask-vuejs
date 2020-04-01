@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html{% block html_attrs  %}{% endblock html_attrs %}>
+{% block html %}
+  <head>
+    {% block head %}
+    <title>{% block title %}{{title|default}}{% endblock title %}</title>
+
+    {% block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock metas %}
+
+    {% block css %}
+    {% endblock css %}
+    
+    {% endblock head %}
+  </head>
+  <body{% block body_attrs %}{% endblock body_attrs %}>
+    {% block body %}
+    
+    {% block navbar %}
+    {% endblock navbar %}
+    
+    {% block content %}
+    {% endblock content %}
+
+    {% assets "build_js" %}
+      <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
+    {% block scripts %}
+    {% endblock scripts %}
+  
+    {% endblock body %}
+  </body>
+{% endblock html %}
+</html>
