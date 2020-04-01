@@ -3,3 +3,4 @@ flask_vuejs.egg-info
 poetry.lock
 .vscode
 .webassets-cache
+dist
