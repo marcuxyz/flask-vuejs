@@ -2,7 +2,12 @@
 name = "flask-vuejs"
 version = "0.1.0"
 description = "Connect Flask With VueJS Framework"
-authors = ["Marcus Pereira <mpereirassa@gmail.com>"]
+authors = ["Marcus Pereira <oi@pacotei.xyz>"]
+
+readme = "README.md"
+license = "MIT"
+keywords = ["fkask + vuejs", "flask-vue", "vuejs", "create app with flask and vue"]
+
 
 [tool.poetry.dependencies]
 python = "^3.8"
