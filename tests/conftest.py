@@ -2,7 +2,7 @@ import pytest
 
 from sample_app import create_app
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 
 
 @pytest.fixture
@@ -21,10 +21,10 @@ def client():
 def web_client():
     options = Options()
     options.headless = True
-    chrome = webdriver.Chrome(options=options)
-    chrome.implicitly_wait(3)
+    firefox = webdriver.Firefox(options=options)
+    firefox.implicitly_wait(3)
 
-    yield chrome
+    yield firefox
 
-    chrome.close()
-    chrome.quit()
+    firefox.close()
+    firefox.quit()
