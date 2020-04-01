@@ -12,6 +12,7 @@ flask-assets = "^2.0"
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 pytest-selenium = "^1.17.0"
+black = "^19.10b0"
 
 [build-system]
 requires = ["poetry>=0.12"]
