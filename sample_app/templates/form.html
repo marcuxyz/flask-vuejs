@@ -1,0 +1,12 @@
+{% extends 'vue/base.html' %}
+
+{% block content %}
+<div id="app">
+  ${title}
+  <task-form></task-form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ use_component('form') }}
+{% endblock %}
