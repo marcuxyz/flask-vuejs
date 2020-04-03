@@ -1,4 +1,8 @@
+from os import environ
+
 from flask import Blueprint, Flask
+
+from . import commands
 
 
 class Vue:
@@ -7,11 +11,14 @@ class Vue:
             self.init_app(app)
 
     def init_app(self, app):
-        app.config.setdefault("FLASK_VUE_COMPONENT_DIRECTORY", "components")
+        commands.init_app(app)
+        self.register_vue_blueprint(app)
 
-        self.register_vue_static_url(app)
+        app.config.setdefault(
+            "FLASK_APPLICATION_PATH", environ.get("FLASK_APPLICATION_PATH", ".")
+        )
 
-    def register_vue_static_url(self, app):
+    def register_vue_blueprint(self, app):
         app.register_blueprint(
             Blueprint(
                 "vue",
