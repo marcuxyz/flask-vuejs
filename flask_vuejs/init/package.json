@@ -1,0 +1,25 @@
+{
+  "name": "vuecompiled",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.0",
+    "babel-loader": "8.1.0",
+    "vue-loader": "15.9.1",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "4.42.1",
+    "webpack-cli": "3.3.11"
+  },
+  "dependencies": {
+    "axios": "0.19.2",
+    "vue": "2.6.11",
+    "vue-router": "3.1.6",
+    "vuelidate": "^0.7.5",
+    "vuex": "^3.1.3"
+  }
+}

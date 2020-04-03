@@ -1,7 +1,8 @@
-from flask import Blueprint, Flask
-from flask_assets import Bundle, Environment
+from os import environ
 
-from . import environs
+from flask import Blueprint, Flask
+
+from . import commands
 
 
 class Vue:
@@ -10,13 +11,14 @@ class Vue:
             self.init_app(app)
 
     def init_app(self, app):
-        app.config.setdefault("FLASK_VUE_COMPONENT_DIRECTORY", "components")
+        commands.init_app(app)
+        self.register_vue_blueprint(app)
 
-        self.register_vue_static_url(app)
-        self.register_global_object(app)
-        self.build_js(app)
+        app.config.setdefault(
+            "FLASK_APPLICATION_PATH", environ.get("FLASK_APPLICATION_PATH", ".")
+        )
 
-    def register_vue_static_url(self, app):
+    def register_vue_blueprint(self, app):
         app.register_blueprint(
             Blueprint(
                 "vue",
@@ -26,16 +28,3 @@ class Vue:
                 template_folder="templates",
             )
         )
-
-    def register_global_object(self, app):
-        app.jinja_env.globals["use_component"] = environs.load_component_file
-
-    def build_js(self, app):
-        environ = Environment(app)
-        js = Bundle(
-            "vue/core/vue.js",
-            "vue/core/axios.js",
-            "vue/core/config.js",
-            output="vue/main.js",
-        )
-        environ.register("build_js", js)

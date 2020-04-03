@@ -17,15 +17,10 @@
   <body{% block body_attrs %}{% endblock body_attrs %}>
     {% block body %}
     
-    {% block navbar %}
-    {% endblock navbar %}
-    
-    {% block content %}
-    {% endblock content %}
-
-    {% assets "build_js" %}
-      <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
+    <div id="app">  
+      {% block content %}
+      {% endblock content %}
+    </div>
 
     {% block scripts %}
     {% endblock scripts %}
