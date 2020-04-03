@@ -34,10 +34,11 @@ def init(init):
     # copy directories locals to application directory
     copy_tree(os.path.join(front_original, "init"), ".")
     copy_tree(os.path.join(front_original, frontend_dir), frontend_dir)
-    
+
     return click.echo(
         "Setup configured successfully! Run the command to compile the vue\n\nflask vue compile\n"
     )
+
 
 @vue.command()
 @with_appcontext
@@ -52,6 +53,7 @@ def compile():
     """ Compile assets only once """
     subprocess.check_call("npm run build", shell=True)
     return click.echo("\nCompiled!\n")
+
 
 @vue.command()
 @with_appcontext
