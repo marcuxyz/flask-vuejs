@@ -14,7 +14,6 @@ repository = "https://github.com/pacotei/flask-vuejs"
 [tool.poetry.dependencies]
 python = "^3.8"
 flask = "^1.1.1"
-flask-assets = "^2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
