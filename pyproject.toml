@@ -9,6 +9,7 @@ license = "MIT"
 keywords = ["fkask + vuejs", "flask-vue", "vuejs", "create app with flask and vue"]
 
 repository = "https://github.com/pacotei/flask-vuejs"
+homepage = "https://flaskvue.pacotei.xyz/"
 
 
 [tool.poetry.dependencies]
