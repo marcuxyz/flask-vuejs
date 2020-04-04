@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello {name}
+    Hello {{name}}
   </div>
 </template>
 
