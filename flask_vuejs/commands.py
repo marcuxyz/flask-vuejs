@@ -27,7 +27,6 @@ def init(init):
         os.path.isdir(frontend_dir)
         or os.path.isfile("package.json")
         or os.path.isfile("webpack.config.js")
-        or os.path.isfile(".env")
     ):
         return click.echo("You already configured your application.")
 
