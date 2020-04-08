@@ -4,9 +4,12 @@ import subprocess
 from distutils.dir_util import copy_tree
 
 import click
+from colorama import init, Fore
 from flask.cli import with_appcontext
 
 BASEDIR = os.path.dirname(os.path.dirname(__file__))
+
+init(autoreset=True)
 
 
 @click.group()
@@ -27,13 +30,17 @@ def init(init):
         or os.path.isfile("package.json")
         or os.path.isfile("webpack.config.js")
     ):
-        return click.echo("You already configured your application.")
+        return click.echo(
+            f"You already configured your application. Try running {Fore.GREEN}\
+flask vue restore {Fore.WHITE}command before running this command again."
+        )
 
     # copy directories locals to application directory
     copy_tree(os.path.join(front_original, "bootstrap"), ".")
 
     return click.echo(
-        "Setup configured successfully! Run the command to compile the vue\n\nflask vue compile\n"
+        f"Everything went well, now you need to execute the following commands:\
+\n\n{Fore.GREEN}$ flask vue install\n{Fore.GREEN}$ flask vue compile\n"
     )
 
 
