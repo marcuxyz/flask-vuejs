@@ -1,10 +1,12 @@
 import os
 import platform
+import shutil
 import subprocess
+from contextlib import suppress
 from distutils.dir_util import copy_tree
 
 import click
-from colorama import init, Fore
+from colorama import Fore, init
 from flask.cli import with_appcontext
 
 BASEDIR = os.path.dirname(os.path.dirname(__file__))
@@ -71,6 +73,23 @@ def watch():
     if platform.system() == "Windows":
         return click.echo(text.format("set"))
     return click.echo(text.format("export"))
+
+
+@vue.command()
+def restore():
+    """ Restore factory application """
+    files = ["webpack.config.js", "package.json", "package-lock.json"]
+    dirs = ["frontend", "node_modules"]
+
+    for f in files:
+        if os.path.isfile(f):
+            os.remove(f)
+
+    for d in dirs:
+        if os.path.isdir(d):
+            shutil.rmtree(d)
+
+    return click.echo(f"Restored successfully!")
 
 
 def init_app(app):
