@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "flask-vuejs"
-version = "1.1.2"
+version = "1.2.0"
 description = "Connect Flask With VueJS Framework"
 authors = ["Marcus Pereira <oi@pacotei.xyz>"]
 
