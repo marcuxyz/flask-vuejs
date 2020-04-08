@@ -21,18 +21,16 @@ def vue():
 def init(init):
     """ Configure your project. """
     front_original = os.path.join(BASEDIR, "flask_vuejs")
-    frontend_dir = "frontend"
 
     if (
-        os.path.isdir(frontend_dir)
+        os.path.isdir("frontend")
         or os.path.isfile("package.json")
         or os.path.isfile("webpack.config.js")
     ):
         return click.echo("You already configured your application.")
 
     # copy directories locals to application directory
-    copy_tree(os.path.join(front_original, "init"), ".")
-    copy_tree(os.path.join(front_original, frontend_dir), frontend_dir)
+    copy_tree(os.path.join(front_original, "bootstrap"), ".")
 
     return click.echo(
         "Setup configured successfully! Run the command to compile the vue\n\nflask vue compile\n"
