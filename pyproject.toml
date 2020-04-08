@@ -23,6 +23,7 @@ pytest-selenium = "^1.17.0"
 black = "^19.10b0"
 selenium = "^3.141.0"
 python-dotenv = "^0.12.0"
+pytest-flask = "^1.0.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
