@@ -16,7 +16,7 @@
     "webpack-cli": "3.3.11"
   },
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "vue": "2.6.11",
     "vue-router": "3.1.6",
     "vuelidate": "^0.7.5",
